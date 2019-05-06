@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for answer in answers %}
+<div class="media-body">
+  <div class="article-metadata">
+    <small class="text-muted">{{ answer.date_posted.strftime('%Y-%m-%d')}}</small>
+  </div>
+  <h2><a class="article-title" href="#">{{answer.name}}</a></h2>
+  <p class="article-content">{{ answer.content }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}
