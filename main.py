@@ -5,13 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 
+
 from forms import PostForm,AnswerForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-db = SQLAlchemy(app)
+db = SQLAlchemy(app)  
 
 bcrypt = Bcrypt(app)
 
@@ -45,6 +46,7 @@ def post(post_id):
     answer = Answer(name=form.name.data,content=form.content.data,person_id=post_id)
     db.session.add(answer)
     db.session.commit()
+    return redirect(url_for("post",post_id=post.id))
   return render_template("post.html",post=post,answers=answers,form=form,legend="Answer")
 
 @app.route("/answer",methods=["GET","POST"])
