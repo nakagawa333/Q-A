@@ -14,8 +14,8 @@
 
 
 {% for post in posts %}
-<div class="media-body">
-  <div class="article-metadata">
+<div class="card"  style="color:red;">
+  <div class="card-body">
     <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
   </div>
   <h2><a class="article-title" href="{{url_for("post",post_id=post.id)}}">{{post.title}}</a></h2>
@@ -25,8 +25,8 @@
 
 
 {% for answer in answers %}
-<div class="media-body">
-  <div class="article-metadata">
+<div class="card w-90" style="margin-left:10%;">
+  <div class="card-body">
   </div>
   <h2><a class="article-title" href="#">{{answer.name}}</a></h2>
   <p class="article-content">{{ answer.content }}</p>
@@ -73,3 +73,7 @@
 </div>
 
 {% endblock %}
+
+<script>
+
+</script>

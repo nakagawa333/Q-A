@@ -35,6 +35,7 @@ def new_post():
     return redirect("/home")
   return render_template("create_post.html",title="New Post",form=form,legend="Question")
 
+
 @app.route("/post/<int:post_id>",methods=["GET","POST"])
 def post(post_id):
   from models import Post
